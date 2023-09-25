@@ -1,3 +1,3 @@
-export function foo(arg: string) {
+export function foo(arg: string): void {
   console.log(arg)
 }

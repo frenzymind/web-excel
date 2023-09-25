@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ESLintPlugin from 'eslint-webpack-plugin'
 import { BuildOptions } from './types/config'
 
 export function buildlugins({
@@ -19,6 +20,11 @@ export function buildlugins({
 
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin())
+    plugins.push(
+      new ESLintPlugin({
+        extensions: ['.js', '.ts'],
+      })
+    )
   }
 
   if (isProd) {
