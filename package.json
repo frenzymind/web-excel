@@ -23,11 +23,13 @@
   },
   "homepage": "https://github.com/frenzymind/web-excel#readme",
   "devDependencies": {
+    "@types/circular-dependency-plugin": "5.0.6",
     "@types/node": "20.6.4",
     "@types/webpack": "5.28.2",
     "@types/webpack-dev-server": "4.7.2",
     "@typescript-eslint/eslint-plugin": "6.7.2",
     "@typescript-eslint/parser": "6.7.2",
+    "circular-dependency-plugin": "5.2.2",
     "css-loader": "6.8.1",
     "eslint": "8.50.0",
     "eslint-config-airbnb-base": "^15.0.0",

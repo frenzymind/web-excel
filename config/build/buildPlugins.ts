@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ESLintPlugin from 'eslint-webpack-plugin'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 import { BuildOptions } from './types/config'
 
 export function buildlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
@@ -13,10 +14,13 @@ export function buildlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlug
       favicon: paths.favicon,
     }),
     new webpack.ProgressPlugin(),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
+    }),
   ]
 
   if (isDev) {
-    plugins.push(new webpack.HotModuleReplacementPlugin())
     plugins.push(
       new ESLintPlugin({
         extensions: ['.js', '.ts'],
