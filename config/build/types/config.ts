@@ -5,6 +5,8 @@ export interface BuildPaths {
   build: string
   html: string
   favicon?: string
+  src: string
+  core: string
 }
 
 export interface BuildEnv {

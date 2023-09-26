@@ -9,6 +9,8 @@ export default (env: BuildEnv) => {
     build: path.resolve(__dirname, 'dist'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     favicon: path.resolve(__dirname, 'favicon.ico'),
+    src: path.resolve(__dirname, 'src'),
+    core: path.resolve(__dirname, 'src', 'core'),
   }
 
   const mode = env.mode || 'development'
