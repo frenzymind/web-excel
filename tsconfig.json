@@ -1,23 +1,26 @@
 {
   "compilerOptions": {
+    "lib": ["DOM"],
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "module": "ESNext",
+    "module": "ES6",
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@core/*": ["./src/core/*"],
       "@src/*": ["./src/*"]
-    }
+    },
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": ["./src/**/*.ts"]
 }

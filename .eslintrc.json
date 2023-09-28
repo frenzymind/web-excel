@@ -46,7 +46,8 @@
         ],
         "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
         "class-methods-use-this": "off",
-        "@typescript-eslint/no-explicit-any": "warn"
+        "@typescript-eslint/no-explicit-any": "warn",
+        "no-empty-function": "off"
       }
     }
   ]
