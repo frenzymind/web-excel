@@ -1,13 +1,13 @@
-import { $, IComponent } from '@core'
+import { $, IComponent, Dom } from '@core/index'
 import { IExcelOptions } from './model/types/excel'
 
 export class Excel {
-  $el: HTMLElement
+  $el: Dom
 
   components: IComponent[] = []
 
   constructor(selector: string, options: IExcelOptions) {
-    this.$el = document.querySelector(selector)
+    this.$el = $(selector)
     this.components = options.components
   }
 
@@ -18,7 +18,7 @@ export class Excel {
       const $el = $.create('div', Component.className)
 
       const component = new Component($el)
-      $el.innerHTML = component.toHTML()
+      $el.html(component.toHTML())
 
       $root.append($el)
     })
