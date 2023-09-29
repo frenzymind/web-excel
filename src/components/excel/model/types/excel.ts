@@ -1,4 +1,4 @@
-import { IComponent } from '@core/index'
+import { IComponent } from '@core'
 
 export interface IExcelOptions {
   components: IComponent[]

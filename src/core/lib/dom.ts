@@ -1,5 +1,6 @@
 type Selector = string | HTMLElement
-export class Dom {
+
+class Dom {
   private $el: HTMLElement
 
   constructor(selector: Selector) {
@@ -40,6 +41,8 @@ export class Dom {
     return this
   }
 }
+
+export type DomElement = Dom
 
 export function $(selector: Selector) {
   return new Dom(selector)

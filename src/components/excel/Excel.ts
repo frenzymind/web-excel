@@ -1,8 +1,8 @@
-import { $, IComponent, Dom } from '@core/index'
+import { $, IComponent, DomElement } from '@core'
 import { IExcelOptions } from './model/types/excel'
 
 export class Excel {
-  $el: Dom
+  $el: DomElement
 
   components: IComponent[] = []
 

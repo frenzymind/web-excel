@@ -1,4 +1,4 @@
-import { ExcelComponent } from '@src/core/ExcelComponent'
+import { ExcelComponent } from '../../ExcelComponent'
 
 export type IComponent = { new (...args: unknown[]): ExcelComponent; className: string }
 

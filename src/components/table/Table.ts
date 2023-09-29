@@ -1,4 +1,4 @@
-import { ExcelComponent } from '@core/index'
+import { ExcelComponent } from '@core'
 
 export class Table extends ExcelComponent {
   static className = 'excel__table'

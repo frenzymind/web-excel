@@ -12,6 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
+      "@core": ["./src/core"],
       "@core/*": ["./src/core/*"],
       "@src/*": ["./src/*"]
     },
