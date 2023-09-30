@@ -44,11 +44,11 @@ class Dom {
 
 export type DomElement = Dom
 
-export function $(selector: Selector) {
+export function $(selector: Selector): DomElement {
   return new Dom(selector)
 }
 
-$.create = (tagName: string, classes = '') => {
+$.create = (tagName: string, classes = ''): DomElement => {
   const el = document.createElement(tagName)
 
   if (classes) {
