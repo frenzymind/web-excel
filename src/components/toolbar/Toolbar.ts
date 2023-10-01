@@ -1,7 +1,18 @@
-import { ExcelComponent } from '@core'
+import { DomElement, ExcelComponent } from '@core'
 
 export class Toolbar extends ExcelComponent {
   static className = 'excel__toolbar'
+
+  constructor($root: DomElement) {
+    super($root, {
+      name: 'Toolbar',
+      listeners: ['click'],
+    })
+  }
+
+  onClick(event: Event) {
+    console.log(event.target)
+  }
 
   toHTML(): string {
     return `

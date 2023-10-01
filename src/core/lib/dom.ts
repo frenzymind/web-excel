@@ -1,3 +1,5 @@
+import { DomEvent } from '../model/types/core'
+
 type Selector = string | HTMLElement
 
 class Dom {
@@ -23,6 +25,14 @@ class Dom {
   clear() {
     this.html('')
     return this
+  }
+
+  on(eventType: DomEvent, cb: EventListenerOrEventListenerObject) {
+    this.$el.addEventListener(eventType, cb)
+  }
+
+  off(eventType: DomEvent, cb: EventListenerOrEventListenerObject) {
+    this.$el.removeEventListener(eventType, cb)
   }
 
   append(_node: Dom | HTMLElement) {

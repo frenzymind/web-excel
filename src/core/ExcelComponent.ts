@@ -3,8 +3,12 @@ import { ExcelComponentOptions } from '@core/model/types/core'
 import { DomListener } from './DomListener'
 
 export class ExcelComponent extends DomListener {
+  name = ''
+
   constructor($root: DomElement, options: ExcelComponentOptions) {
     super($root, options?.listeners)
+
+    this.name = options?.name || ''
   }
 
   toHTML() {
@@ -13,5 +17,9 @@ export class ExcelComponent extends DomListener {
 
   init() {
     this.initDOMListeners()
+  }
+
+  destroy() {
+    this.removeDOMListeners()
   }
 }
