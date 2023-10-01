@@ -1,7 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import ESLintPlugin from 'eslint-webpack-plugin'
 import CircularDependencyPlugin from 'circular-dependency-plugin'
 import { BuildOptions } from './types/config'
 
@@ -19,15 +18,6 @@ export function buildlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlug
       failOnError: true,
     }),
   ]
-
-  if (isDev) {
-    plugins.push(
-      new ESLintPlugin({
-        extensions: ['.js', '.ts'],
-        emitWarning: false,
-      }),
-    )
-  }
 
   if (isProd) {
     plugins.push(

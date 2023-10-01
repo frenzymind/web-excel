@@ -15,32 +15,49 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "rules": {
-    "import/prefer-default-export": "off",
-    "no-plusplus": "off",
-    // Note: you must disable the base rule as it can report incorrect errors
-    "no-useless-constructor": "off",
-    "@typescript-eslint/no-useless-constructor": "error",
-    // turn on errors for missing imports
-    "import/no-unresolved": "error",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_"
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "import/prefer-default-export": "off",
+        "no-plusplus": "off",
+        // Note: you must disable the base rule as it can report incorrect errors
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": "error",
+        // turn on errors for missing imports
+        "import/no-unresolved": "error",
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
+        ],
+        "import/extensions": [
+          "error",
+          "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never",
+            "ts": "never",
+            "tsx": "never"
+          }
+        ],
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+        "class-methods-use-this": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "no-empty-function": "off",
+        "no-use-before-define": [
+          "error",
+          {
+            "functions": false,
+            "classes": true,
+            "variables": true,
+            "allowNamedExports": false
+          }
+        ]
       }
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
-  }
+    }
+  ]
 }
