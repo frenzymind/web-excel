@@ -50,6 +50,28 @@ class Dom {
 
     return this
   }
+
+  closest(selector: string) {
+    return $(this.$el.closest(selector) as HTMLElement)
+  }
+
+  getCoords() {
+    return this.$el.getBoundingClientRect()
+  }
+
+  get data() {
+    return this.$el.dataset
+  }
+
+  findAll(selector: string) {
+    return this.$el.querySelectorAll<HTMLElement>(selector)
+  }
+
+  css(styles: Partial<CSSStyleDeclaration>) {
+    Object.assign(this.$el.style, styles)
+
+    return this
+  }
 }
 
 export type DomElement = Dom
