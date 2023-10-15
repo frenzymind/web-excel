@@ -56,7 +56,10 @@
             "variables": true,
             "allowNamedExports": false
           }
-        ]
+        ],
+        "no-underscore-dangle": "off",
+        "no-restricted-syntax": "off",
+        "no-param-reassign": ["error", { "props": false }]
       }
     }
   ]
