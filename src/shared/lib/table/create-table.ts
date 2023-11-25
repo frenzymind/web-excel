@@ -11,9 +11,13 @@ export function createTable(rowsCount = 15) {
   const cols = new Array<string>(colsCount).fill('').map(toChar).map(toColumn).join('')
   rows.push(createRow(cols))
 
-  for (let i = 0; i < rowsCount; i++) {
-    const row = new Array<string>(colsCount).fill('').map(toCell).join('')
-    rows.push(createRow(row, String(i + 1)))
+  for (let row = 0; row < rowsCount; row++) {
+    const cells = new Array<string>(colsCount)
+      .fill('')
+      // .map((_, col) => toCell(row, col))
+      .map(toCell(row))
+      .join('')
+    rows.push(createRow(cells, String(row + 1)))
   }
 
   return rows.join('')
@@ -40,8 +44,14 @@ function toColumn(col: string, index: number) {
   </div>`
 }
 
-function toCell(_: string, col: number) {
-  return `<div class="cell" contenteditable data-col="${col}"></div>`
+// function toCell(row: number, col: number) {
+//   return `<div class="cell" contenteditable data-col="${col}" data-row="${row}"></div>`
+// }
+
+function toCell(row: number) {
+  return function (_: string, col: number) {
+    return `<div class="cell" contenteditable data-type="cell" data-col="${col}" data-id="${row}:${col}"></div>`
+  }
 }
 
 function toChar(_: string, index: number) {

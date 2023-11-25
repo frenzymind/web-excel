@@ -1,0 +1,2 @@
+export const FORMULA_INPUT = 'FORMULA_INPUT'
+export const FORMULA_DONE = 'FORMULA_DONE'
