@@ -1,2 +1,2 @@
-export { createTable } from './create-table'
-export { isResizeable } from './utils'
+export * from './create-table'
+export * from './utils'

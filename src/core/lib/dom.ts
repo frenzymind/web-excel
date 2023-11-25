@@ -1,4 +1,4 @@
-import { DomEvent } from '../model/types/core'
+import { DomEvent, ICell } from '../model/types/core'
 
 type Selector = string | HTMLElement
 
@@ -20,6 +20,23 @@ class Dom {
     }
 
     return this.$el.outerHTML.trim()
+  }
+
+  text(): string
+
+  text(text: string): this
+
+  text(text?: string) {
+    if (typeof text === 'string') {
+      this.$el.textContent = text
+      return this
+    }
+
+    if (this.$el.tagName.toLowerCase() === 'input') {
+      return (this.$el as HTMLInputElement).value.trim()
+    }
+
+    return this.$el.textContent.trim()
   }
 
   clear() {
@@ -63,6 +80,10 @@ class Dom {
     return this.$el.dataset
   }
 
+  find(selector: string) {
+    return $(this.$el.querySelector(selector) as HTMLElement)
+  }
+
   findAll(selector: string) {
     return this.$el.querySelectorAll<HTMLElement>(selector)
   }
@@ -71,6 +92,43 @@ class Dom {
     Object.assign(this.$el.style, styles)
 
     return this
+  }
+
+  id(): string
+
+  id(parse: boolean): ICell
+
+  id(parse: boolean = false) {
+    if (parse) {
+      const parsed = this.data.id.split(':')
+
+      return {
+        row: Number(parsed[0]),
+        col: Number(parsed[1]),
+      }
+    }
+
+    return this.data.id
+  }
+
+  focus() {
+    this.$el.focus()
+
+    return this
+  }
+
+  addClass(className: string) {
+    this.$el.classList.add(className)
+    return this
+  }
+
+  removeClass(className: string) {
+    this.$el.classList.remove(className)
+    return this
+  }
+
+  get isExist() {
+    return !!this.$el
   }
 }
 

@@ -59,7 +59,9 @@
         ],
         "no-underscore-dangle": "off",
         "no-restricted-syntax": "off",
-        "no-param-reassign": ["error", { "props": false }]
+        "no-param-reassign": ["error", { "props": false }],
+        "func-names": "off",
+        "@typescript-eslint/ban-types": "off"
       }
     }
   ]
